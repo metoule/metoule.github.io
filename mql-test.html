@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script>
+	document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('printme').addEventListener('click', function(e) {
+        window.print();
+      });
+      var output = document.getElementById('test');
+      var mediaQueryList = window.matchMedia('print');
+      mediaQueryList.addListener(function(mql) {
+        if(mql.matches) {
+          output.innerHTML += 'Query matched!';
+        } else {
+          output.innerHTML += 'Query didn\'t match!';
+        }
+      });
+	});
+    </script>
+  </head>
+<body>
+  <button id="printme">Print me</button>
+  <div id="test"></div>
+</body>
+</html>
